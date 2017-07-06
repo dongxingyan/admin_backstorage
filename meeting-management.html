@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>meeting-management</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <!-- // <script src="js/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/comment.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+</head>
+<style>
+    html {
+        width: 100%;
+        height: 100%;
+        background: none;
+    }
+
+    body {
+        width: 100%;
+        height: 100%;
+        /*	background: url(image/big-bcg.png) no-repeat 0px 0px;*/
+        background-size: 100%;
+
+    }
+
+    .ui-timepicker-div dl dt {
+        height: 25px;
+        margin-bottom: -25px;
+    }
+
+    .ui_tpicker_time_label {
+        padding-left: 20px;
+    }
+
+    .ui-timepicker-div dl dd {
+        margin: 0 10px 10px 65px;
+    }
+
+    .ztree li span.button.ico_docu {
+        background: url(image/personal.png) no-repeat 0px 0px;
+    }
+</style>
+<body>
+<div class="head" style="height:72px;">
+    <div class="head-content">
+        <h1 class="left"><img src="image/logo.png" alt=""></h1>
+        <div class="userss"></div>
+        <div class="right2">
+            <img src="image/red-end.png" alt="" style="display:none;" class="red">
+            <img src="image/gray-end.png" alt="" class="gray">
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="box-left">
+        <a href="javascript:void(0)" class="a1">
+            <div>
+                <img src="image/page01.png" alt="">
+                状态总览
+                <span></span>
+            </div>
+        </a>
+        <a href="javascript:void(0)"  class="a2">
+            <div>
+                <img src="image/page05.png" alt="">
+                会议管理
+                <span class="show" style="display:block"></span>
+            </div></a>
+        <a href="javascript:void(0)"  class="a3">
+            <div>
+                <img src="image/page02.png" alt="">
+                会议室管理<span></span></div></a>
+        <a href="javascript:void(0)"  class="a4">
+            <div>
+                <img src="image/page03.png" alt="">
+                部门管理<span></span></div></a>
+        <a href="javascript:void(0)"  class="a5">
+            <div>
+                <img src="image/page04.png" alt="">
+                用户账号<span></span></div></a>
+        <a href="javascript:void(0)"  class="a6">
+            <div>
+                <img src="image/page06.png" alt="">
+                硬件管理<span></span></div></a>
+        <!--<a href="javascript:void(0)"  class="a8">-->
+            <!--<div>-->
+                <!--<img src="image/page08.png" alt="">-->
+                <!--会议统计-->
+                <!--<span></span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <a href="javascript:void(0)" class="J-account">
+            <div>
+                <img src="image/page08.png" alt="">
+                统计
+                <span></span>
+            </div>
+        </a>
+        <!--<a href="javascript:void(0)" class="hide" id="J-use-count">-->
+            <!--<div style="justify-content: center;">-->
+                <!--使用统计-->
+                <!--<span></span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <!--<a href="javascript:void(0)" class="hide" id="J-live-count">-->
+            <!--<div style="justify-content: center;">-->
+                <!--直播统计-->
+                <!--<span></span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <a href="javascript:void(0)"  class="a9">
+            <div>
+                <img src="image/page09.png" alt="">
+                通讯录
+                <span></span>
+            </div>
+        </a>
+        <a href="https://www.cloudp.cc/admin_backstage_new/#!/main/live-recording" target="_blank">
+            <div>
+                <img src="image/page10.png" alt="">
+                录制直播
+                <span></span>
+            </div>
+        </a>
+        <a href="javascript:void(0)"  class="a7">
+            <div>
+                <img src="image/page07.png" alt="">
+                修改密码<span></span></div>
+        </a>
+    </div>
+    <div class="box-right">
+        <div class="right-title" style="position:relative">会议管理
+            <span class="new-meeting">新建会议</span>
+        </div>
+        <!-- 	<div class="right-about">
+                <span class="right-about-span">所属部门</span>
+                <input type="text">
+                <span class="right-about-span">用户名称</span>
+                <input type="text">
+                <span class="span-about">查询</span>
+            </div> -->
+        <div class="user-content">
+            <div class="content-box">
+                <div class="ceshi">
+                    <ul class="li-headtwo">
+                        <li style="width:120px;text-align:center">会议室号</li>
+                        <li class="names">会议主题</li>
+                        <li style="width:165px;text-align:center">开始时间</li>
+                        <li style="width:165px;text-align:center">结束时间</li>
+                        <li style="width:90px;text-align:center">操作</li>
+                    </ul>
+                </div>
+                <div class="content-boxes"></div>
+                <div class="pages">
+                    <span>第<span class="current-page"></span>页/</span>
+                    <span>共<span class="page-count"></span>页,</span>
+                    <span>共<span class="content-totals"></span>条</span>
+                    <span id="firstPage">首页</span>
+                    <span id="prev">上一页</span>
+                    <span id="next">下一页</span>
+                    <span id="lastPage">尾页</span>
+                    <input type="text" class="page-num">
+                    <span id="page-jump">跳转</span>
+                </div>
+                <!-- 		<ul class="li-head">
+                                <li class="accountnum">1212</li>
+                                <li class="accountalias">122</li>
+                                <li class="displayname">15454</li>
+                                <li class="username">15456</li>
+                                <li class="useremail">465465</li>
+                                <li class="description"><img src="image/bianji.png" alt=""></li>
+                            </ul>
+                    </div> -->
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="bcgs"></div>
+<div class="meeting-form">
+    <div class="editors">编辑会议</div>
+    <div class="form-box">
+        <div>
+            <span class="add-bgces">开始时间</span>
+            <input type="text" id="datetime1" maxlength="19">
+
+        </div>
+        <div>
+            <span class="add-bgces">结束时间</span>
+            <input type="text" id="datetime2" maxlength="19">
+        </div>
+        <div style="position:relative">
+            <span class="add-bgc">会议室号</span>
+            <!-- <span class="meetingroom-number"></span> -->
+            <select name="" id="editor-meetingroom"></select>
+            <button class="editor-can-use" autocomplete="off">获取可用会议室</button>
+        </div>
+        <div>
+            <span class="add-bgc">会议主题</span>
+            <input type="text" placeholder=" 请输入主题" class="meeting-topic">
+        </div>
+        <!-- 		<div>
+                    <span class="add-bgc">参会人数</span>
+                    <input type="text" placeholder=" 不超过50人" class="meeting-count">
+                </div>
+                <div>
+                    <span>主持密码</span>
+                    <input type="password" class="meeting-password" placeholder=" 请输入密码" >
+                </div> -->
+        <div class="true-box">
+            <span class="trues">确定</span>
+            <span class="cancels">取消</span>
+        </div>
+    </div>
+</div>
+<div class="add-meeting" style="left:45%;top:25%;height:800px;border-radius:5px;">
+    <div class="editors">新建会议</div>
+    <div class="form-box">
+        <div>
+            <span class="add-bgces">开始时间:</span>
+            <input type="text" id="datetime3" maxlength="19">
+            <span class="add-bgces">结束时间:</span>
+            <input type="text" id="datetime4" maxlength="19">
+        </div>
+
+        <div style="position:relative">
+            <span class="add-bgc">会议室号:</span>
+            <button class="can-use" autocomplete="off">获取</button>
+            <select name="" id="meetingroom"></select>
+            <span class="add-bgc" style="position: absolute;left:326px;">会议容量:</span>
+            <span class="manaccount"></span>
+        </div>
+        <div>
+            <span class="add-bgc">入会密码:</span>
+            <input id="guest-pass-create" type="text" readonly title="入会密码">
+        </div>
+        <div>
+            <span class="add-bgc">会议主题:</span>
+            <input type="text" placeholder=" 请输入主题" class="meeting-topics" autocomplete="off">
+        </div>
+        <div id="creatRadio1">
+            <span class="checkbox" style="width:100px;">是否发送邮件:</span>
+            <input type="radio" class="meetingroomradio" name="radiochooseCreat1" value="0" id="radio7" checked="true">
+            <label for="radio7" class="label7" style="width:50px;">是</label>
+            <input type="radio" name="radiochooseCreat1" class="meetingroomradio" value="1" id="radio8">
+            <label for="radio8" class="label8" style="width:50px" ;>否</label>
+        </div>
+        <div style="position:relative;height:203px;" class="txlbox">
+            <span>与会人员：</span>
+            <div class="people-left">
+                <div class="title2">通讯录人员</div>
+                <div class="allgroup" name='1'></div>
+                <div id="contentBox2"></div>
+                <div id="contentBox">
+                    <div class='meetinggroup'>aiou组</div>
+                </div>
+            </div>
+            <img src="image/middleyou.png" class="middlepng">
+            <div class="people-right">
+                <div class="title1" style=" position: initial;">邀请的与会人员<span class="clear">清除全部</span></div>
+                <div id="contentBox1"></div>
+            </div>
+        </div>
+        <div style="position:relative;height:75px;">
+            <span style="position:absolute;left:0px;top:30px;">其他人员:</span>
+            <textarea placeholder="请输入要邀请人的邮箱，中间用逗号隔开" class="emailpeople"
+                      style="position:absolute;left:105px;"></textarea>
+        </div>
+        <div>
+            <span class="add-bgces" style="width: 100px;text-align: right">会议发起人:</span>
+            <input type="text" id="input1">
+            <span class="add-bgces">联系电话:</span>
+            <input type="text" id="input2">
+        </div>
+        <div>
+            <span class="add-bgces" style="text-indent: 27px;">邮箱:</span>
+            <input type="text" id="input3">
+
+        </div>
+
+        <div class="true-box">
+            <span class="trues">确定</span>
+            <span class="cancels">取消</span>
+        </div>
+    </div>
+</div>
+<div class="alerts">
+    <div class="alert-head">
+        温馨提示
+        <img src="image/alertshanchu.png" alt="" class="img-right">
+        <img src="image/zhuyi.png" alt="" class="img-left">
+    </div>
+    <div class="alert-content"></div>
+    <div class="alert-bottom">
+        <span class="alert-sure">确定</span>
+    </div>
+</div>
+<div class="alerts-add">
+    <div class="alert-head">
+        温馨提示
+        <img src="image/alertshanchu.png" alt="" class="add-right">
+        <img src="image/zhuyi.png" alt="" class="img-left">
+    </div>
+    <div class="alert-content"></div>
+    <div class="alert-bottom">
+        <span class="add-sure">确定</span>
+    </div>
+</div>
+<div class="alerts-delet">
+    <div class="alert-head">
+        温馨提示
+        <img src="image/alertshanchu.png" alt="" class="delet-right">
+        <img src="image/zhuyi.png" alt="" class="img-left">
+    </div>
+    <div class="alert-content">确定删除吗？</div>
+    <div class="alert-bottom">
+        <div class="span-total">
+            <span class="delet-sure">确定</span>
+            <span class="delet-cancel">取消</span>
+        </div>
+    </div>
+</div>
+<div class="page">
+    <div class="alert-head">
+        温馨提示
+        <img src="image/alertshanchu.png" alt="" class="page-right">
+        <img src="image/zhuyi.png" alt="" class="img-left">
+    </div>
+    <div class="alert-content"></div>
+    <div class="alert-bottom">
+        <span class="page-sure">确定</span>
+    </div>
+</div>
+<script src="js/vars.js"></script>
+<script src="js/meetings.js"></script>
+</body>
+</html>

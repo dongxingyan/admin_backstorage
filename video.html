@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>video</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="css/video-js.min.css" rel="stylesheet">
+
+	<script src="js/jquery.min.js"></script>
+    <script src="js/comment.js"></script>
+</head>
+<style>
+		html,body{
+	width: 100%;
+	height: 100%;
+	}
+	body{
+	width: 100%;
+	height: 100%;
+/*	background: url(image/big-bcg.png) no-repeat 0px 0px;*/
+	background-size: 100%;
+}
+ul{
+	overflow: hidden;
+}
+.li-head-meetingrooms{
+	border-bottom: 1px solid #c4c4c4;
+}
+.li-head-meetingrooms li{
+	height: 100%;
+	min-height: 40px;
+}
+.li-head-meetingrooms li, .li-head-meetingroom li {
+	height: 100%;
+	min-height: 40px;
+}
+#contentBox #meetingroom-name{
+	width: 60px;
+}
+#contentBox .meetingroom-number{
+	width: 220px;
+}
+#contentBox .meetingroom-people{
+	width: 200px;
+}
+#contentBox .meetingroom-org{
+	width: 200px;
+	border-right: none;
+}
+#contentBox .meetingroom-data{
+	min-height: 40px;
+	border-left: none;
+}
+#contentbox{
+	overflow: hidden;
+}
+#contentbox:last-child li{
+	border-bottom: none;
+}
+/*#contentbox li:first-child{
+	border-left: none;
+}*/
+#contentbox li{
+	float: left;
+}
+.li-head-meetingrooms .meeting-moshi{
+	width: 100px;
+	border-left: 1px solid #c4c4c4;
+    border-right: none;
+    text-align: center;
+}
+#contentbox .boxes1{
+	width: 250px;
+	text-align: center;
+	line-height: 40px;
+	border-bottom: 1px solid #c4c4c4;
+	border-left: 1px solid #c4c4c4;
+}
+#contentbox .boxes2{
+	width: 100px;
+	text-align: center;
+	line-height: 40px;
+	border-bottom: 1px solid #c4c4c4;
+}
+#contentbox .boxes3{
+	width: 147px;
+	text-align: center;
+	line-height: 40px;
+	border-bottom: 1px solid #c4c4c4;
+	border-right: none;
+}
+.video-xiazai{
+	margin-left:5px;
+
+}
+.video-bofang{
+	margin-left: 10px;
+
+}
+.video-shanchu{
+	margin-left: 10px;
+}
+</style>
+<body>
+	<div class="head">
+		<div class="head-content">
+			<h1 class="left"><img src="image/logo.png" alt=""></h1>
+			<div class="userss"></div>
+			<div class="right2">
+				<img src="image/red-end.png" alt="" style="display:none;" class="red">
+				<img src="image/gray-end.png" alt="" class="gray">
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="box-left">
+			<a href="javascript:void(0)" class="a1">
+				<div>
+					<img src="image/page01.png" alt="">
+					状态总览
+					<span></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a2">
+				<div>
+					<img src="image/page05.png" alt="">
+					会议管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a3">
+				<div>
+					<img src="image/page02.png" alt="">
+					会议室管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a4">
+				<div>
+					<img src="image/page03.png" alt="">
+					部门管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a5">
+				<div>
+					<img src="image/page04.png" alt="">
+					用户账号<span></span></div></a>
+			<a href="javascript:void(0)"  class="a6">
+				<div>
+					<img src="image/page06.png" alt="">
+					硬件管理<span></span></div></a>
+			<!--<a href="javascript:void(0)"  class="a8">-->
+				<!--<div>-->
+					<!--<img src="image/page08.png" alt="">-->
+					<!--会议统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)" class="J-account">
+				<div>
+					<img src="image/page08.png" alt="">
+					统计
+					<span></span>
+				</div>
+			</a>
+			<!--<a href="javascript:void(0)" class="hide" id="J-use-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--使用统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<!--<a href="javascript:void(0)" class="hide" id="J-live-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--直播统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)"  class="a9">
+				<div>
+					<img src="image/page09.png" alt="">
+					通讯录
+					<span></span>
+				</div>
+			</a>
+			<a href="http://118.144.248.18/admin_backstage_new/#!/main/live-recording" target="_blank">
+				<div>
+					<img src="image/page10.png" alt="">
+					录制直播
+					<span class="show" style="display:block"></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a7">
+				<div>
+					<img src="image/page07.png" alt="">
+					修改密码<span></span></div>
+			</a>
+		</div>
+		<a style="display: flex; justify-content: center;" href="https://www.cloudp.cc/admin_backstage_new/#!/main/live-recording" target="_blank">请移步新版</a>
+		<!--<div class="box-right">-->
+		<!--<div class="right-title">录制直播信息</div>-->
+		<!--<div class="user-content">-->
+			<!--<div class="content-box">-->
+				<!--<div class="ceshi">-->
+					<!--<ul class="li-heads">-->
+							<!--<li style="width:60px;text-align:center">序号</li>-->
+							<!--<li style="width:220px;text-align:center">会议室</li>-->
+							<!--<li style="width:200px;text-align:center">开始时间</li>-->
+							<!--<li style="width:200px;text-align:center">结束时间</li>-->
+							<!--<li style="width:100px;text-align:center">模式</li>-->
+							<!--<li style="text-align:center" class="changeluzhi">录制文件</li>-->
+							<!--<li style="width:100px;text-align:center">大小</li>-->
+							<!--<li style="width:150px;text-align:center">操作</li>-->
+						<!--</ul>-->
+				<!--</div>-->
+				<!--<div id="contentBox">-->
+				<!--</div>	-->
+				<!--<div class="pages">-->
+						<!--<span>第<span class="current-page"></span>页/</span>-->
+						<!--<span>共<span class="page-count"></span>页,</span>-->
+						<!--<span>共<span class="content-totals"></span>条</span>-->
+						<!--<span id="firstPage">首页</span>-->
+						<!--<span id="prev">上一页</span>-->
+						<!--<span id="next">下一页</span>-->
+						<!--<span id="lastPage">尾页</span>-->
+						<!--<input type="text" class="page-num">-->
+						<!--<span id="page-jump">跳转</span>-->
+	            <!--</div>-->
+			<!--&lt;!&ndash; 	<ul id="contentbox">-->
+					<!--<li class=""></li>-->
+					<!--<li></li>-->
+					<!--<li><img src="image/xiazai.png"><img src="image/bofang.png"><img src="image/shanchu.png"></li>-->
+				<!--</ul> &ndash;&gt;-->
+			<!---->
+			<!--&lt;!&ndash; 		<ul class="li-head">-->
+							<!--<li class="accountnum">1212</li>-->
+							<!--<li class="accountalias">122</li>-->
+							<!--<li class="displayname">15454</li>-->
+							<!--<li class="username">15456</li>-->
+							<!--<li class="useremail">465465</li>-->
+							<!--<li class="description"><img src="image/bianji.png" alt=""></li>-->
+						<!--</ul>-->
+				<!--</div> &ndash;&gt;-->
+			<!--</div>-->
+		<!--</div>-->
+
+	<!--</div>-->
+		<!--</div>-->
+	</div>
+<div class="bcgs"></div>
+<div class="alerts">
+<div class="alert-head">
+	温馨提示
+	<img src="image/alertshanchu.png" alt="" class="img-right">
+	<img src="image/zhuyi.png" alt="" class="img-left">
+</div>
+<div class="alert-content"></div>
+<div class="alert-bottom">
+	<span class="alert-sure">确定</span>
+</div>
+</div>
+<div class="add-people" >
+	<div class="editors2">
+		添加人员
+	</div>
+	<div class="form-box">
+		<div>
+			<span class="add-bgc">人员姓名:</span>
+			<input type="text" placeholder="请输入姓名" class="a11" id="add-a11">
+		</div>
+		<div>
+			<span class="add-bgc">联系邮箱：</span>
+			<input type="text" placeholder="请输入邮箱" class="a22" id="add-a22">
+		</div>
+		<div>
+			<span class="add-bgc">联系电话:</span>
+			<input type="text" placeholder="请输入联系电话" class="a33" id="add-a33">
+		</div>
+		<div class="positions" style="height:140px;position:relative">
+			<span style="position:absolute;top:60px;">备注信息:</span>
+			<textarea name="" id="add-a55" cols="30" rows="10" class="a55" style="position:absolute;left:104px;"></textarea>
+		</div>
+		<div>
+			<span >分组管理:</span>
+			<select id="groups"></select>
+		</div>
+			<span class="true" style="top:30px;">确定</span>
+			<span class="cancel" style="top:30px;">取消</span>
+	</div>
+</div>
+<div class="editor-people" >
+	<div class="editors2">
+		编辑人员
+	</div>
+	<div class="form-box">
+		<div>
+			<span class="add-bgc">人员姓名:</span>
+			<input type="text" placeholder="请输入姓名" class="a11" id="add-a111">
+		</div>
+		<div>
+			<span class="add-bgc">联系邮箱：</span>
+			<input type="text" placeholder="请输入邮箱" class="a22" id="add-a222">
+		</div>
+		<div>
+			<span class="add-bgc">联系电话:</span>
+			<input type="text" placeholder="请输入联系电话" class="a33" id="add-a333">
+		</div>
+		<div class="positions" style="height:140px;position:relative">
+			<span style="position:absolute;top:60px;">备注信息:</span>
+			<textarea name="" id="add-a555" cols="30" rows="10" class="a55" style="position:absolute;left:104px;"></textarea>
+		</div>
+		<div>
+			<span>分组管理:</span>
+			<select id="groups1">
+				<option value="0">未分组联系人</option>
+			</select>
+		</div>
+			<span class="editortrue" style="top:30px;">确定</span>
+			<span class="editorcancel" style="top:30px;">取消</span>
+	</div>
+</div>
+<div class="alerts-delet">
+<div class="alert-head">
+	温馨提示
+	<img src="image/alertshanchu.png" alt="" class="delet-right">
+	<img src="image/zhuyi.png" alt="" class="img-left">
+</div>
+<div class="alert-content">确定删除吗？</div>
+<div class="alert-bottom">
+	<div class="span-total">
+	<span class="delet-sure">确定</span>
+	<span class="delet-cancel">取消</span>
+</div>
+</div>
+</div>
+<div  id="a2" style="display:none;width: 600px;height: 490px;position: absolute;left: 50%;top: 20%;margin-left: -300px;">
+    <div id="a3" style="height:50px;position:relative">视频播放	<img src="image/chanew.png" id="chaimg">	</div>
+	<div id="a1" style="height:400px;">
+		<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="500" height="400"
+		poster="http://video-js.zencoder.com/oceans-clip.png" />
+	</div>
+</div>
+<script src="js/vars.js"></script>
+<script src="js/video.min.js"></script>
+<script src="js/video.js"></script>
+</body>
+</html>

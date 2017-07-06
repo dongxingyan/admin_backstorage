@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>department-management</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/demo.css">
+	<link rel="stylesheet" href="css/zTreeStyle.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/comment.js"></script>
+	<script src='js/jquery.ztree.core-3.5.js'></script>
+	<script type="text/javascript" src="js/jquery.ztree.excheck-3.5.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.exedit-3.5.js"></script>
+
+</head>
+<style>
+		html{
+	width: 100%;
+	height: 100%;
+	}
+	body{
+	width: 100%;
+	height: 100%;
+/*	background: url(image/big-bcg.png) no-repeat 0px 0px;*/
+	background-size: 100%;
+	    font: 14px/18px "Microsoft Yahei", Tahoma, Helvetica, Arial, Verdana, "\5b8b\4f53", sans-serif;
+    color: #51555C;
+}
+
+ul.ztree {
+     margin-top: 0px; 
+     margin-left: 0px; 
+     border: none; 
+     font-size: 16px;
+     background: none;
+     overflow-y:auto;
+     margin-left: 41px;
+}
+.ztree li span.button.add {
+	background: url(image/add.png) no-repeat 0px 0px;
+	background-size: contain;
+}
+.ztree li span.button.edit{
+	background: url(image/rename.png) no-repeat 0px 0px;
+	background-size: contain;
+	    margin-left: 3px;
+}
+.ztree li span.button.ico_docu{
+	background: url(image/personal.png) no-repeat 0px 0px;
+}
+.ztree li span.button.ico_close,.ztree li span.button.ico_open{
+	background: url(image/department.png) no-repeat 0px 0px;
+}
+.ztree li span.button.remove{
+	background: url(image/delet.png) no-repeat 0px 0px;
+	background-size: contain;
+	    margin-left: 3px;
+}
+.ztree li span.button.noline_open{
+	background: url(image/jianhao.png) no-repeat 3px 3px;
+
+}
+.ztree li span.button.noline_close{
+	background: url(image/jiahao.png) no-repeat 3px 3px;
+
+}
+</style>
+<body>
+	<div class="head" style="height:72px">
+		<div class="head-content" >
+			<h1 class="left"><img src="image/logo.png" alt=""></h1>
+			<div class="userss"></div>
+			<div class="right2">
+				<img src="image/red-end.png" alt="" style="display:none;" class="red">
+				<img src="image/gray-end.png" alt="" class="gray">
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="box-left">
+			<a href="javascript:void(0)" class="a1">
+				<div>
+					<img src="image/page01.png" alt="">
+					状态总览
+					<span></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a2">
+				<div>
+					<img src="image/page05.png" alt="">
+					会议管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a3">
+				<div>
+					<img src="image/page02.png" alt="">
+					会议室管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a4">
+				<div>
+					<img src="image/page03.png" alt="">
+					部门管理
+					<span class="show" style="display:block"></span>
+				</div></a>
+			<a href="javascript:void(0)"  class="a5">
+				<div>
+					<img src="image/page04.png" alt="">
+					用户账号<span></span></div></a>
+			<a href="javascript:void(0)"  class="a6">
+				<div>
+					<img src="image/page06.png" alt="">
+					硬件管理<span></span></div></a>
+			<!--<a href="javascript:void(0)"  class="a8">-->
+				<!--<div>-->
+					<!--<img src="image/page08.png" alt="">-->
+					<!--会议统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)" class="J-account">
+				<div>
+					<img src="image/page08.png" alt="">
+					统计
+					<span></span>
+				</div>
+			</a>
+			<!--<a href="javascript:void(0)" class="hide" id="J-use-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--使用统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<!--<a href="javascript:void(0)" class="hide" id="J-live-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--直播统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)"  class="a9">
+				<div>
+					<img src="image/page09.png" alt="">
+					通讯录
+					<span></span>
+				</div>
+			</a>
+			<a href="https://www.cloudp.cc/admin_backstage_new/#!/main/live-recording" target="_blank">
+				<div>
+					<img src="image/page10.png" alt="">
+					录制直播
+					<span></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a7">
+				<div>
+					<img src="image/page07.png" alt="">
+					修改密码<span></span></div>
+			</a>
+		</div>
+		<div class="box-right">
+		<div class="right-title">部门管理</div>
+		
+		<ul id="treeDemo" class="ztree"></ul>
+		<div></div>
+		</div>
+	</div>
+<div class="bcgs"></div>
+<!-- 错误提示 -->
+<div class="alerts">
+<div class="alert-head">
+	温馨提示
+	<img src="image/alertshanchu.png" alt="" class="img-right">
+	<img src="image/zhuyi.png" alt="" class="img-left">
+</div>
+<div class="alert-content"></div>
+<div class="alert-bottom">
+	<span class="alert-sure">确定</span>
+</div>
+</div>
+<div class="alerts-delet">
+<div class="alert-head">
+	温馨提示
+	<img src="image/alertshanchu.png" alt="" class="delet-right">
+	<img src="image/zhuyi.png" alt="" class="img-left">
+</div>
+<div class="alert-content"></div>
+<div class="alert-bottom">
+	<div class="span-total">
+	<span class="delet-sure">确定</span>
+	<span class="delet-cancel">取消</span>
+</div>
+</div>
+</div>
+<script src="js/vars.js"></script>
+<script src="js/departments.js"></script>
+</body>
+</html>

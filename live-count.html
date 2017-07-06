@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>直播统计</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/live-count.css">
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <!-- header -->
+    <div class="head">
+        <div class="head-content">
+            <h1 class="left"><img src="image/logo.png"></h1>
+            <div class="userss"></div>
+            <div class="right2">
+                <img src="image/red-end.png" class="red hide">
+                <img src="image/gray-end.png" class="gray">
+            </div>
+        </div>
+    </div>
+    <!-- content -->
+    <div class="box">
+        <!-- left nav -->
+        <div class="box-left">
+            <a href="javascript:void(0)"  class="a1">
+                <div>
+                    <img src="image/page01.png">
+                    状态总览
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a2">
+                <div>
+                    <img src="image/page05.png">
+                    会议管理
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a3">
+                <div>
+                    <img src="image/page02.png">
+                    会议室管理
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a4">
+                <div>
+                    <img src="image/page03.png">
+                    部门管理
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a5">
+                <div>
+                    <img src="image/page04.png">
+                    用户账号
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a6">
+                <div>
+                    <img src="image/page06.png">
+                    硬件管理
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a8">
+                <div>
+                    <img src="image/page08.png">
+                    会议统计
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="J-account">
+                <div>
+                    <img src="image/page08.png">
+                    统计
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)" id="J-use-count">
+                <div class="flex-align-center">使用统计<span></span></div>
+            </a>
+            <a href="javascript:void(0)" id="J-live-count">
+                <div class="flex-align-center">
+                    直播统计
+                    <span class="show nav-show"></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a9">
+                <div>
+                    <img src="image/page09.png">
+                    通讯录
+                    <span></span>
+                </div>
+            </a>
+            <a href="http://118.144.248.18/admin_backstage_new/#!/main/live-recording" target="_blank">
+                <div>
+                    <img src="image/page10.png">
+                    录制直播
+                    <span></span>
+                </div>
+            </a>
+            <a href="javascript:void(0)"  class="a7">
+                <div>
+                    <img src="image/page07.png">
+                    修改密码
+                    <span></span>
+                </div>
+            </a>
+        </div>
+        <div class="box-right-header">
+            <div class="live-count-text-container">
+                <div class="live-count-nav-icon"></div>
+                <div class="right-title">直播统计</div>
+            </div>
+            <div class="search-condition-container">
+                <div class="time-button-container">
+                    <div class="selected">今天</div>
+                    <div>昨天</div>
+                    <div>近一周</div>
+                    <div id="J-nearly-month">近一月</div>
+                </div>
+                <div class="search-time-container">
+                    <input type="text" id="calendarStart" placeholder="点击获取开始日期">
+                    <div>至</div>
+                    <input type="text" id="calendarEnd" placeholder="点击获取截止日期">
+                </div>
+                <div class="meeting-search-select-container">
+                    <select name="" id="">
+                        <option value="全部">全部</option>
+                        <option value="测试直播1">测试直播1</option>
+                        <option value="测试直播2">测试直播2</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="search-button" id="J-search">查询</div>
+                </div>
+                <div>
+                    <div class="output-table-button" id="J-output-charts">导出报表</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+                    margin-left: 15px;
+                    width: 100%;
+                    margin-top: 30px;
+                    padding-top: 20px;
+                    margin-right: 1%;">
+                <div id="J-live-concurrent-chart" style="
+                        width: 100%;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+                    margin-left: 15px;
+                    width: 100%;
+                    margin-top: 30px;
+                    padding-top: 20px;
+                    margin-right: 1%;">
+                <div id="J-live-user-zone-chart" style="
+                        width: 100%;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+                    margin-left: 15px;
+                    width: 100%;
+                    margin-top: 30px;
+                    margin-right: 1%;">
+                <div id="J-live-user-device-chart" style="
+                        width: 100%;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+                    margin-left: 15px;
+                    width: 100%;
+                    margin-top: 30px;
+                    padding-top: 20px;
+                    margin-right: 1%;">
+                <div id="J-live-browser-version-chart" style="
+                        width: 100%;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+                    margin-left: 15px;
+                    width: 100%;
+                    margin-top: 30px;
+                    padding-top: 20px;
+                    margin-right: 1%;">
+                <div id="J-live-flow-chart" style="
+                        width: 100%;
+                        height: 300px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;"></div>
+            </div>
+        </div>
+    </div>
+    <div id="J-warn-modal" class="warn-info-tip-modal hide">
+        <div class="warn-type-container hide">
+            <img src="./image/error.png" alt="">
+            <span id="J-warn-tip-text"></span>
+        </div>
+    </div>
+    <div id="J-success-modal" class="warn-info-tip-modal hide">
+        <div class="warn-type-container hide">
+            <img src="./image/success.png" alt="">
+            <span id="J-success-tip-text"></span>
+        </div>
+    </div>
+</body>
+<script src="js/vars.js"></script>
+<script src="js/live-count.js"></script>
+</html>

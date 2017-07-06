@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>meeting-total</title>
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/highcharts.js"></script>
+</head>
+<style>
+		html{
+	width: 100%;
+	height: 100%;
+	}
+	body{
+	width: 100%;
+	height: 100%;
+/*	background: url(image/big-bcg.png) no-repeat 0px 0px;*/
+	background-size: 100%;
+}
+.ui-timepicker-div dl dt {
+height: 25px;
+margin-bottom: -25px;
+}
+.ui_tpicker_time_label {
+    padding-left: 20px;
+}
+.ui-timepicker-div dl dd {
+    margin: 0 10px 10px 65px;
+}
+.ztree li span.button.ico_docu{
+	background: url(image/personal.png) no-repeat 0px 0px;
+}
+</style>
+<body>
+	<div class="head">
+		<div class="head-content">
+			<h1 class="left"><img src="image/logo.png" alt=""></h1>
+			<div class="userss"></div>
+			<div class="right2">
+				<img src="image/red-end.png" alt="" style="display:none;" class="red">
+				<img src="image/gray-end.png" alt="" class="gray">
+			</div>
+		</div>
+	</div>
+	<div class="box">
+		<div class="box-left">
+			<a href="javascript:void(0)" class="a1">
+				<div>
+					<img src="image/page01.png" alt="">
+					状态总览
+					<span></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a2">
+				<div>
+					<img src="image/page05.png" alt="">
+					会议管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a3">
+				<div>
+					<img src="image/page02.png" alt="">
+					会议室管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a4">
+				<div>
+					<img src="image/page03.png" alt="">
+					部门管理<span></span></div></a>
+			<a href="javascript:void(0)"  class="a5">
+				<div>
+					<img src="image/page04.png" alt="">
+					用户账号<span></span></div></a>
+			<a href="javascript:void(0)"  class="a6">
+				<div>
+					<img src="image/page06.png" alt="">
+					硬件管理<span></span></div></a>
+			<!--<a href="javascript:void(0)"  class="a8">-->
+				<!--<div>-->
+					<!--<img src="image/page08.png" alt="">-->
+					<!--会议统计-->
+					<!--<span class="show" style="display:block"></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)" class="J-account">
+				<div>
+					<img src="image/page08.png" alt="">
+					统计
+					<span></span>
+				</div>
+			</a>
+			<!--<a href="javascript:void(0)" class="hide" id="J-use-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--使用统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<!--<a href="javascript:void(0)" class="hide" id="J-live-count">-->
+				<!--<div style="justify-content: center;">-->
+					<!--直播统计-->
+					<!--<span></span>-->
+				<!--</div>-->
+			<!--</a>-->
+			<a href="javascript:void(0)"  class="a9">
+				<div>
+					<img src="image/page09.png" alt="">
+					通讯录
+					<span></span>
+				</div>
+			</a>
+			<a href="https://www.cloudp.cc/admin_backstage_new/#!/main/live-recording" target="_blank">
+				<div>
+					<img src="image/page10.png" alt="">
+					录制直播
+					<span></span>
+				</div>
+			</a>
+			<a href="javascript:void(0)"  class="a7">
+				<div>
+					<img src="image/page07.png" alt="">
+					修改密码<span></span></div>
+			</a>
+		</div>
+		<div class="box-right">
+			<div class="right-title"style="position:relative">会议统计
+                 <div class="buttons">
+				<button value="day" class="button1">近一年</button>
+				<button value="month" class="button2">近一月</button>
+				<button vlaue="week" class="button3">近一周</button>
+			</div>
+		     <div class="chaxun-right">
+		     	<div class="imgcirle" style="position: absolute;left: -18px;top: 16px;"></div>		     	
+				<input type="text" id="datatime1" placeholder="点击获取开始日期">
+				<i style="display:inline-block;width:10px;background:#a9a9a9;height:1px;margin-right:2px;"></i>
+				<div class="imgcirle"  style="position: absolute;top: 16px;"></div>
+				<input type="text" id="datatime2" placeholder="点击获取截止日期" style="margin-left:34px;">
+			</div>
+			<span class="chaxun"></span>
+			</div>
+		<div class="total-box">
+			<div class="total-left">
+				<div id="container" style="min-width:600px;max-width:1200px;margin-top:50px;"></div>
+				<div id="container2" style="min-width:600px;max-width:1200px;margin-top:50px;"></div>
+				<div id="container3" style="min-width:600px;max-width:1200px;margin-top:50px;"></div>
+			</div>
+			<div class="total-right">
+				<div class="meeting-list">会议统计列表</div>
+				<div>
+				<div class="content-box">
+					<div class="ceshi">
+							<ul class="li-head-meetingroom">
+							<li style="width:120px;text-align:center">会议室号</li>
+							<li style="width:140px;text-align:center">开始时间</li>
+							<li style="width:140px;text-align:center">结束时间</li>
+							<li style="width:100px;text-align:center">时长（分钟）</li>
+							<li style="width:80px;text-align:center">人数</li>
+					</ul>
+					</div>
+					<div class="content-boxes" id="contentBox">
+					</div>
+					<div class="pages">
+							<span>第<span class="current-page"></span>页/</span>
+						<span>共<span class="page-count"></span>页,</span>
+						<span>共<span class="content-totals"></span>条</span>
+						<span id="firstPage">首页</span>
+						<span id="prev">上一页</span>
+						<span id="next">下一页</span>
+						<span id="lastPage">尾页</span>
+						<input type="text" class="page-num">
+						<span id="page-jump">跳转</span>
+					</div>
+				</div>	
+				</div>
+			</div>
+		</div>
+			
+		</div>
+	</div>
+<div class="bcgs"></div>
+<div class="alerts">
+<div class="alert-head">
+	温馨提示
+	<img src="image/alertshanchu.png" alt="" class="img-right">
+	<img src="image/zhuyi.png" alt="" class="img-left">
+</div>
+<div class="alert-content"></div>
+<div class="alert-bottom">
+	<span class="alert-sure">确定</span>
+</div>
+</div>
+<script src="js/vars.js"></script>
+<script src="js/meetingtotal.js"></script>
+</html>

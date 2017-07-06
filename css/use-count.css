@@ -1,0 +1,188 @@
+.time-button-container {
+    display: flex;
+    border: 1px solid #ccc;
+    height: 30px;
+    color: #424242;
+}
+.time-button-container div {
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+.time-button-container div:hover {
+    background: #31a3dd !important;
+    color: #ffffff !important;
+}
+.search-condition-container {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.search-time-container {
+    margin-left: 10px;
+    display: flex;
+    height: 30px;
+}
+.search-time-container div {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-time-container input {
+    height: 30px;
+    border: 1px solid #ccc;
+    width: 104px;
+    text-align: center;
+}
+.search-time-container i {
+    display: inline-block;
+    width: 25px;
+    background: #a9a9a9;
+    height: 1px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 15px;
+}
+.meeting-search-input-container input {
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 200px;
+    margin-left: 20px;
+    padding-left: 10px;
+}
+.search-button {
+    color: #1d94f5;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin-left: 27px;
+}
+.search-button:hover {
+    color: #1b729f;
+}
+.output-table-button {
+    color: #1d94f5;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    margin-left: 50px;
+    position: absolute;
+    right: 10%;
+}
+.output-table-button:hover {
+    color: #1b729f;
+}
+th {
+    font-size: 16px;
+}
+tr {
+    line-height: 40px;
+}
+.row {
+    display: flex;
+    background: #ffffff;
+    width: 87%;
+    margin-left: 30px;
+    display: flex;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+button:hover {
+    background: #1b729f;
+}
+.warn-info-tip-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(0,0,0, 0.1);
+}
+.warn-type-container {
+    width: 315px;
+    height: 72px;
+    background: #ffffff;
+    top: 40%;
+    left: 40%;
+    right: 50%;
+    bottom: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 3px;
+}
+.warn-type-container img {
+    margin-right: 14px;
+}
+.meeting-room-use-times {
+    float: left;
+    border: 1px solid #ccc;
+    margin-left: 15px;
+    width: 70%;
+    margin-top: 30px;
+    padding-top: 20px;
+    margin-right: 1%;
+}
+.meeting-room-use-times div {
+    width: 100%;
+    height: 300px;
+}
+.meeting-room-chart-container {
+    width: 25%;
+    height: 300px;
+    right: 0;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    padding-top: 20px;
+    margin-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+.meeting-room-chart-container tr {
+    /*overflow-y: auto;*/
+    line-height: 25px;
+}
+.meeting-room-chart-container table {
+    text-align: center;
+    width: 88%;
+}
+.selected {
+    background: #1d94f5 !important;
+    color: #ffffff !important;
+}
+.use-count-nav-icon {
+    background: #31a3dd;
+    width: 6px;
+    height: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.use-count-text-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.meeting-duration-table td {
+    width: 106px;
+}
+.use-count-text {
+    font-weight: bold;
+    margin-left: 5px;
+}

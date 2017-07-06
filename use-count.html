@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用统计</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/use-count.css">
+
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+    <script src="js/comment.js"></script>
+    <script src="js/echarts.min.js"></script>
+</head>
+<style>
+    html{
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        width: 100%;
+        height: 100%;
+        /*	background: url(image/big-bcg.png) no-repeat 0px 0px;*/
+        background-size: 100%;
+    }
+
+</style>
+<body>
+<div class="head">
+    <div class="head-content">
+        <h1 class="left"><img src="image/logo.png" alt=""></h1>
+        <div class="userss"></div>
+        <div class="right2">
+            <img src="image/red-end.png" alt="" style="display:none;" class="red">
+            <img src="image/gray-end.png" alt="" class="gray">
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="box-left">
+        <a href="javascript:void(0)"  class="a1">
+            <div>
+                <img src="image/page01.png" alt="">
+                状态总览
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)"  class="a2">
+            <div>
+                <img src="image/page05.png" alt="">
+                会议管理<span></span></div></a>
+        <a href="javascript:void(0)"  class="a3">
+            <div>
+                <img src="image/page02.png" alt="">
+                会议室管理<span></span></div></a>
+        <a href="javascript:void(0)"  class="a4">
+            <div>
+                <img src="image/page03.png" alt="">
+                部门管理<span></span></div></a>
+        <a href="javascript:void(0)"  class="a5">
+            <div>
+                <img src="image/page04.png" alt="">
+                用户账号<span></span></div></a>
+        <a href="javascript:void(0)"  class="a6">
+            <div>
+                <img src="image/page06.png" alt="">
+                硬件管理<span></span></div></a>
+        <!--<a href="javascript:void(0)"  class="a8">-->
+            <!--<div>-->
+                <!--<img src="image/page08.png" alt="">-->
+                <!--会议统计-->
+                <!--<span>-->
+				<!--</span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <a href="javascript:void(0)" class="J-account">
+            <div>
+                <img src="image/page08.png" alt="">
+                统计
+                <span class="show" style="display:block"></span>
+            </div>
+        </a>
+        <!--<a href="javascript:void(0)" id="J-use-count">-->
+            <!--<div style="justify-content: center;">-->
+                <!--使用统计-->
+                <!--<span class="show" style="display:block"></span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <!--<a href="javascript:void(0)" id="J-live-count">-->
+            <!--<div style="justify-content: center;">-->
+                <!--直播统计-->
+                <!--<span></span>-->
+            <!--</div>-->
+        <!--</a>-->
+        <a href="javascript:void(0)"  class="a9">
+            <div>
+                <img src="image/page09.png" alt="">
+                通讯录
+                <span></span>
+            </div>
+        </a>
+        <a href="https://www.cloudp.cc/admin_backstage_new/#!/main/live-recording" target="_blank">
+            <div>
+                <img src="image/page10.png" alt="">
+                录制直播
+                </span>
+            </div>
+        </a>
+        <a href="javascript:void(0)"  class="a7">
+            <div>
+                <img src="image/page07.png" alt="">
+                修改密码<span></span></div>
+        </a>
+    </div>
+    <div class="box-right-header">
+        <div class="use-count-text-container">
+            <div class="use-count-nav-icon"></div>
+            <div class="use-count-text">使用统计</div>
+        </div>
+        <div class="search-condition-container">
+            <div class="time-button-container">
+                <div class="selected" id="J-nearly-week">近一周</div>
+                <div id="J-nearly-month">近一月</div>
+                <div id="J-nearly-year">近一年</div>
+            </div>
+            <div class="search-time-container">
+                <input type="text" id="calendarStart" placeholder="点击获取开始日期">
+                <div>至</div>
+                <input type="text" id="calendarEnd" placeholder="点击获取截止日期">
+            </div>
+            <div class="meeting-search-input-container">
+                <input type="text" placeholder="多个会议室请用英文的“，”隔开" id="J-meeting-room">
+            </div>
+            <div class="col-xs-1">
+                <div class="search-button" id="J-search">查询</div>
+            </div>
+            <div class="col-xs-1">
+                <div class="output-table-button" id="J-output-charts">导出报表</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div style="float: left;margin-left: 15px;width: 75%;margin-top: 20px;margin-right: 1%;">
+            <div id="meeting-use-times" style="width: 100%; height: 390px; display: flex; justify-content: center; align-items: center;"></div>
+        </div>
+        <div style="width: 25%;height: 330px;right: 0;border-left: 1px solid #ccc;overflow-y: auto;padding-top: 20px;margin-top: 30px;padding-right: 20px;margin-bottom: 30px;">
+            <table style="text-align: center; width: 88%;" id="J-meeting-times-table">
+            </table>
+
+        </div>
+    </div>
+    <div class="row">
+        <div style="float: left; margin-left: 15px; width: 75%;margin-top: 30px; margin-right: 1%;">
+            <div id="meeting-concurrent" style="width: 100%; height: 390px; display: flex; justify-content: center; align-items: center;"></div>
+        </div>
+        <div style="width: 25%;height: 330px;right: 0;border-left: 1px solid #ccc;overflow-y: auto;margin-top: 10px; padding-top: 20px;padding-right: 20px;margin-bottom: 30px;">
+            <table style="text-align: center; width: 88%;" id="J-meeting-concurrent-table">
+            </table>
+        </div>
+    </div>
+    <div class="row" style="flex-direction: column; align-items: center;">
+        <div style="float: left; margin-left: 15px; width: 96%;margin-top: 30px;padding-left: 20px;">
+            <div id="meeting-times" style="width: 96%; height: 390px; display: flex; justify-content: center; align-items: center;"></div>
+        </div>
+    </div>
+    <div class="row" style="height: 138px !important; margin-top: 0; padding-top: 37px; text-align: center; margin-bottom: 20px;">
+        <div style="overflow-y: auto; margin-right: 20px; width: 100%;display: flex;">
+            <table class="meeting-duration-table" id="J-meeting-duration-table">
+                <tr style="background: #f5f6f5;" id="J-date-row">
+                </tr>
+                <tr style="background: #e8f5ff;" id="J-participant-time-row">
+                </tr>
+                <tr style="background: #fff7e5;" id="J-meeting-use-time-row">
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="J-warn-modal" class="warn-info-tip-modal hide">
+    <div class="warn-type-container hide">
+        <img src="./image/error.png" alt="">
+        <span id="J-warn-tip-text"></span>
+    </div>
+</div>
+<div id="J-success-modal" class="warn-info-tip-modal hide">
+    <div class="warn-type-container hide">
+        <img src="./image/success.png" alt="">
+        <span id="J-success-tip-text"></span>
+    </div>
+</div>
+</body>
+<script src="js/vars.js"></script>
+<script src="js/use-count.js"></script>
+</html>
